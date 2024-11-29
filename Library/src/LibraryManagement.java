@@ -10,7 +10,8 @@ public class LibraryManagement {
     private void run() {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-
+        Transaction transaction=Transaction.getInstance();
+        
         while (running) {
             System.out.println("===========================");
             System.out.println("Library Management System");
@@ -76,7 +77,7 @@ public class LibraryManagement {
                     Book book = library.findBookById(bookId);
 
                     if (member != null && book != null) {
-                    	Transaction.borrowBook(book, member);
+                    	transaction.borrowBook(book, member);
                     } else {
                         System.out.println("Invalid member or book ID.");
                     }
@@ -94,7 +95,7 @@ public class LibraryManagement {
                     book = library.findBookById(bookId);
 
                     if (member != null && book != null) {
-                    	Transaction.returnBook(book, member);
+                    	transaction.returnBook(book, member);
                     } else {
                         System.out.println("Invalid member or book ID.");
                     }
@@ -116,7 +117,7 @@ public class LibraryManagement {
                     }
                     break;
                 case 6:
-                	Transaction.displayTransactionHistory();
+                	//Transaction.displayTransactionHistory();
                     break;
                 case 7:
                     System.out.println("Exiting. Good Bye..");
