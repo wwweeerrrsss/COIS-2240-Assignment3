@@ -1,5 +1,8 @@
 import java.text.SimpleDateFormat;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
@@ -64,5 +67,19 @@ public class Transaction {
 		}
     		
     	
+    }
+    public void displayTransactionHistory() {
+    	try {
+			BufferedReader reader = new BufferedReader(new FileReader("transactions.txt"));
+			String line;
+			while ((line=reader.readLine())!=null) {
+				System.out.println(line);
+			}
+			reader.close();			
+		} catch (FileNotFoundException e) {
+			System.out.println("Error: file transactions.txt not found");
+		} catch (IOException e) {
+			System.out.println("IO error: cannot access transactions.txt");
+		}
     }
 }
