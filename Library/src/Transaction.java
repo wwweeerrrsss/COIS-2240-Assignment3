@@ -58,7 +58,7 @@ public class Transaction {
     
     private void saveTransaction(String s) {
     	try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter("transactions.txt"));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("transactions.txt", true));
 			writer.write(s+"\n");
 			writer.close();
 		} catch (IOException e) {
